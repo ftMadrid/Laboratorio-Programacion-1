@@ -1,12 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package semana1;
 
 import java.util.Scanner;
 
 public class Madrid_Fernando_Planilla_de_Empleado {
+    
      public static void main(String[] args) {
         
         Scanner entrada = new Scanner(System.in);
@@ -32,8 +29,6 @@ public class Madrid_Fernando_Planilla_de_Empleado {
         System.out.println("Hora de Trabajo Mensual: "+horas_trabajadas_mensual+" horas");
         System.out.println("Tarifa por Hora: Lps."+tarifa_hora);
         System.out.println("Salario del Empleado Semanal: Lps."+salario_semanal);
-        
-        
         
     }
 }
