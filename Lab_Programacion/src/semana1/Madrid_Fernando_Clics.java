@@ -1,12 +1,8 @@
 package semana1;
 
-import java.util.Scanner;
-
 public class Madrid_Fernando_Clics {
     
     public static void main(String[] args) {
-        
-        Scanner entrada = new Scanner(System.in);
         
         double viente_clics = 20*0.80;
         double sesenta_clics = 60*0.30;
