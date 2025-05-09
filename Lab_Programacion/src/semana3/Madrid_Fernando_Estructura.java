@@ -30,7 +30,7 @@ public class Madrid_Fernando_Estructura {
             System.out.println("==============================\n");
             System.out.println("1. Palabra Alreves");
             System.out.println("2. Numero Perfecto");
-            System.out.println("3. Primos");
+            System.out.println("3. Numeros Primos");
             System.out.println("4. Votaciones");
             System.out.println("5. Salir\n");
             System.out.print("Escoge una opcion: ");
@@ -86,9 +86,9 @@ public class Madrid_Fernando_Estructura {
                         }
                     }
                     if(resultadoNumeroBase == numeroBase){
-                        System.out.println(numeroBase+" si es un numero perfecto");
+                        System.out.println("\n"+numeroBase+" si es un numero perfecto");
                     }else{
-                        System.out.println(numeroBase+" no es un numero perfecto");
+                        System.out.println("\n"+numeroBase+" no es un numero perfecto");
                     }
                     caso2 += 1;
                     break;
