@@ -15,12 +15,14 @@ public class Madrid_Fernando_Estructura {
         
         int numeroBase = 0, calculoNumeroBase = 0, calculoResiduoBase = 0, resultadoNumeroBase = 0;
         
-        int numeroAleatorio = 0, cantidadDivisores = 0, ultimaComa = 0;
+        int numeroAleatorio = 0;
         
         char letra;
         
-        int caso1 = 0, caso2 = 0, caso3= 0, caso4= 0;
+        int cantidadVotantes, cantidadAzul = 0, cantidadRojo = 0, cantidadNegro = 0, cantidadAmarillo = 0, votoSeleccionado, votosValidos = 0, votosInvalidos = 0;
+        double porcentajeVotosValidos;
         
+        int caso1 = 0, caso2 = 0, caso3= 0, caso4= 0;
         while(opcion != 5){
             
             System.out.println("\n==============================");
@@ -57,10 +59,6 @@ public class Madrid_Fernando_Estructura {
                         if(palabra.length() > cantidadMayor){
                             palabraMayor = palabra;
                             cantidadMayor = palabra.length();
-                            palabraMayorAlrevez = palabraAlrevez;
-                            if(palabraMayor.length() == palabra.length()){
-                                palabraMayor += ", "+palabra;
-                            }
                         }
                     }
                     System.out.println("\nLa palabra mayor es "+palabraMayor+" con "+cantidadMayor+" letras");
@@ -128,8 +126,89 @@ public class Madrid_Fernando_Estructura {
                     caso3 += 1;
                     break;
                 case 4:
+                    System.out.println("\n==============================");
+                    System.out.println("          Votaciones");
+                    System.out.println("==============================\n");
+                    System.out.print("Ingrese la cantidad de votantes en el pais: ");
+                    cantidadVotantes = entrada.nextInt();
+                    
+                    for(int i=0;i<cantidadVotantes;i++) {
+                        System.out.println("\n==============================");
+                        System.out.println("           Planillas");
+                        System.out.println("==============================\n");
+                        System.out.println("1. Azul");
+                        System.out.println("2. Rojo");
+                        System.out.println("3. Negro");
+                        System.out.println("4. Amarillo\n");
+                        System.out.print("Ingrese el numero de planilla que votara: ");
+                        votoSeleccionado = entrada.nextInt(); 
+                        
+                        switch(votoSeleccionado){
+                            case 1:
+                                cantidadAzul++;
+                                votosValidos ++;
+                                System.out.println("\n** Se agrego un voto a la Planilla Azul **");
+                            break;
+                            case 2:
+                                cantidadRojo++;
+                                votosValidos ++;
+                                System.out.println("\n** Se agrego un voto a la Planilla Roja **");
+                            break;
+                            case 3:
+                                cantidadNegro++;
+                                votosValidos ++;
+                                System.out.println("\n** Se agrego un voto a la Planilla Negra **");
+                            break;
+                            case 4:
+                                cantidadAmarillo++;
+                                votosValidos ++;
+                                System.out.println("\n** Se agrego un voto a la Planilla Amarilla **");
+                            break;
+                            default:
+                                System.out.println("\n** Este voto fue anulado **");
+                            break;
+                        }
+                    }
+                    
+                    porcentajeVotosValidos = (votosValidos * 100.0) / cantidadVotantes;
+                    
+                    //Determinar quien es el ganador o si la votación fue fallida
+                    System.out.println("\n==============================");
+                    System.out.println("           Planillas");
+                    System.out.println("==============================\n");
+                    if(porcentajeVotosValidos >= 60){
+                        if(cantidadAzul > cantidadRojo && cantidadAzul > cantidadNegro && cantidadAzul > cantidadAmarillo) {
+                            System.out.println("\n==============================");
+                            System.out.println("           Planillas");
+                            System.out.println("==============================\n");
+                            System.out.println("La planilla ganadora fue: Planilla Azul");  
+                        }else if(cantidadRojo > cantidadAzul && cantidadRojo > cantidadNegro && cantidadRojo > cantidadAmarillo) {
+                            System.out.println("La planilla ganadora fue: Planilla Roja");  
+                        }else if(cantidadNegro > cantidadAzul && cantidadNegro > cantidadRojo && cantidadNegro > cantidadAmarillo) {
+                            System.out.println("La planilla ganadora fue: Planilla Negra");  
+                        }else{
+                            System.out.println("La planilla ganadora fue: Planilla Amarilla");  
+                        }  
+                    }else{
+                        System.out.print("\n** Votacion Fallida **");
+                        System.out.println("Solo votos validos mayor al 60%");
+                    }
+                    
+                    votosInvalidos = cantidadVotantes - votosValidos;
+                    System.out.println("\n- Votos Validos: "+votosValidos);
+                    System.out.println("- Votos Invalidos: "+votosInvalidos);
+                    caso4 += 1;
                     break;
                 case 5:
+                    System.out.println("\n==============================");
+                    System.out.println("        Resumen de Usos");
+                    System.out.println("==============================\n");
+                    System.out.println("- Palabra Alrevez: "+caso1);
+                    System.out.println("- Numero Perfecto: "+caso2);
+                    System.out.println("- Numeros Primos: "+caso3);
+                    System.out.println("- Votaciones: "+caso4);
+                    System.out.println("==============================\n");
+                    System.out.println("Que tenga lindo dia!");
                     break;
                 default:
                     System.out.println("\n** Esta opcion no existe **\n");
