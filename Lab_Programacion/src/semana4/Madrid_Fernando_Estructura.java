@@ -10,6 +10,8 @@ public class Madrid_Fernando_Estructura {
 
         int opcion = 0;
 
+        String resultado = "";
+
         while (opcion != 4) {
 
             System.out.println("\n================================");
@@ -82,7 +84,7 @@ public class Madrid_Fernando_Estructura {
                             palabra += j;
                         } else {
                             if (palabra.length() >= longmin) {
-                                System.out.println("- "+palabra);
+                                System.out.println("- " + palabra);
                             }
                             palabra = "";
                         }
@@ -103,8 +105,8 @@ public class Madrid_Fernando_Estructura {
                         opcion3 = entrada.nextInt();
 
                         switch (opcion3) {
-                            case 1:
-                                System.out.println("Ingrese el texto original: ");
+                            case 1: // Seccion Encriptar
+                                System.out.print("\nIngrese el texto original: ");
                                 String textoOriginal = entrada.next();
                                 String pares = "";
                                 String impares = "";
@@ -116,14 +118,30 @@ public class Madrid_Fernando_Estructura {
                                         impares = impares + letra;
                                     }
                                 }
-                                String resultado = pares + impares;
-                                System.out.println("Las posiciones pares son: " + pares);
+                                resultado = pares + impares;
+                                System.out.println("\nLas posiciones pares son: " + pares);
                                 System.out.println("Las posiciones impares son: " + impares);
                                 System.out.println("Resultado: " + resultado);
                                 break;
-                            case 2:
-                                System.out.println("Ingrese el texto encriptado: ");
-                                String textoEncriptado = entrada.next();
+                            case 2: // Seccion Desencriptar
+                                String textoEncriptado = resultado;
+
+                                int mitad = textoEncriptado.length() / 2 + textoEncriptado.length() % 2;
+                                String pares2 = textoEncriptado.substring(0, mitad);
+                                String impares2 = textoEncriptado.substring(mitad);
+
+                                String original = "";
+
+                                for (int indice = 0; indice < textoEncriptado.length(); indice++) {
+                                    if (indice % 2 == 0 && indice / 2 < pares2.length()) {
+                                        original += pares2.charAt(indice / 2);
+                                    } else if (indice % 2 != 0 && indice / 2 < impares2.length()) {
+                                        original += impares2.charAt(indice / 2);
+                                    }
+                                }
+
+                                System.out.println("\nPalabra Encriptada: "+resultado);
+                                System.out.println("Resultado Palabra Desencriptada: "+original);
                                 break;
                             case 3:
                                 System.out.println("\n*** Saliendo de Codigo Enigma ***");
