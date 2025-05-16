@@ -124,24 +124,28 @@ public class Madrid_Fernando_Estructura {
                                 System.out.println("Resultado: " + resultado);
                                 break;
                             case 2: // Seccion Desencriptar
-                                String textoEncriptado = resultado;
+                                if (!resultado.equalsIgnoreCase("")) {
+                                    String palabraEncriptada = resultado;
 
-                                int mitad = textoEncriptado.length() / 2 + textoEncriptado.length() % 2;
-                                String pares2 = textoEncriptado.substring(0, mitad);
-                                String impares2 = textoEncriptado.substring(mitad);
+                                    int mitad = palabraEncriptada.length() / 2 + palabraEncriptada.length() % 2;
+                                    String pares2 = palabraEncriptada.substring(0, mitad);
+                                    String impares2 = palabraEncriptada.substring(mitad);
 
-                                String original = "";
+                                    String original = "";
 
-                                for (int indice = 0; indice < textoEncriptado.length(); indice++) {
-                                    if (indice % 2 == 0 && indice / 2 < pares2.length()) {
-                                        original += pares2.charAt(indice / 2);
-                                    } else if (indice % 2 != 0 && indice / 2 < impares2.length()) {
-                                        original += impares2.charAt(indice / 2);
+                                    for (int indice = 0; indice < palabraEncriptada.length(); indice++) {
+                                        if (indice % 2 == 0 && indice / 2 < pares2.length()) {
+                                            original += pares2.charAt(indice / 2);
+                                        } else if (indice % 2 != 0 && indice / 2 < impares2.length()) {
+                                            original += impares2.charAt(indice / 2);
+                                        }
                                     }
-                                }
 
-                                System.out.println("\nPalabra Encriptada: "+resultado);
-                                System.out.println("Resultado Palabra Desencriptada: "+original);
+                                    System.out.println("\nPalabra Encriptada: " + resultado);
+                                    System.out.println("Resultado Palabra Desencriptada: " + original);
+                                }else{
+                                    System.out.println("\n*** Todavia no se ha ingresado una palabra en seccion de encriptacion ***");
+                                }
                                 break;
                             case 3:
                                 System.out.println("\n*** Saliendo de Codigo Enigma ***");
