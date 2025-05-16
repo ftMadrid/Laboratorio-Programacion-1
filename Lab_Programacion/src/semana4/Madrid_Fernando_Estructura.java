@@ -23,7 +23,7 @@ public class Madrid_Fernando_Estructura {
             opcion = entrada.nextInt();
 
             switch (opcion) {
-                case 1: // Cifrado
+                case 1: // Seccion Cifrado
 
                     String abcMinus = "abcdefghijklmnopqrstuvwxyz";
                     String abcMayus = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -58,19 +58,19 @@ public class Madrid_Fernando_Estructura {
 
                     System.out.println("\nFrase Cifrada: " + fraseEncriptada);
                     break;
-                case 2:
+                case 2: // Seccion Filrado
                     System.out.println("\n================================");
                     System.out.println("            Filtrado");
                     System.out.println("================================\n");
                     System.out.print("Ingrese una frase: ");
                     String fraseFiltrado = entrada.next();
 
-                    System.out.print("Ingrese una longuitud minima: ");
+                    System.out.print("\nIngrese una longuitud minima: ");
                     int longmin = entrada.nextInt();
 
                     String palabra = "";
                     fraseFiltrado += " ";
-                    System.out.println("La palabras con mayor longuitud a " + longmin + " son: ");
+                    System.out.println("\nLas palabras con mayor longuitud a " + longmin + " son: ");
 
                     String signos = "~`!@#$%^&*()_-+=|}]{[:;?/>.<, ";
 
@@ -82,44 +82,55 @@ public class Madrid_Fernando_Estructura {
                             palabra += j;
                         } else {
                             if (palabra.length() >= longmin) {
-                                System.out.println(palabra);
+                                System.out.println("- "+palabra);
                             }
                             palabra = "";
                         }
                     }
                     break;
-                case 3:
-                    System.out.println("---- MENÚ ----");
-                    System.out.println(" Ingrese una de las siguientes opciones: ");
-                    System.out.println(" (1) Encriptar texto ");
-                    System.out.println(" (2) Desencriptar texto ");
-                    System.out.println(" (3) Regresar ");
-                    int opcion3 = entrada.nextInt();
+                case 3: // Seccion Codigo Enigma
 
-                    switch (opcion3) {
-                        case 1: {
-                            System.out.println("Ingrese el texto original: ");
-                            String textoOriginal = entrada.next();
-                            String pares = "";
-                            String impares = "";
-                            for (int indice = 0; indice < textoOriginal.length(); indice++) {
-                                char letra = textoOriginal.charAt(indice);
-                                if (indice % 2 == 0) {
-                                    pares = pares + letra;
-                                } else {
-                                    impares = impares + letra;
+                    int opcion3 = 0;
+
+                    while (opcion3 != 3) {
+                        System.out.println("\n================================");
+                        System.out.println("          Codigo Enigma");
+                        System.out.println("================================\n");
+                        System.out.println("1. Encriptar texto");
+                        System.out.println("2. Desencriptar texto");
+                        System.out.println("3. Regresar\n");
+                        System.out.print("Ingrese el numero de opcion que desea: ");
+                        opcion3 = entrada.nextInt();
+
+                        switch (opcion3) {
+                            case 1:
+                                System.out.println("Ingrese el texto original: ");
+                                String textoOriginal = entrada.next();
+                                String pares = "";
+                                String impares = "";
+                                for (int indice = 0; indice < textoOriginal.length(); indice++) {
+                                    char letra = textoOriginal.charAt(indice);
+                                    if (indice % 2 == 0) {
+                                        pares = pares + letra;
+                                    } else {
+                                        impares = impares + letra;
+                                    }
                                 }
-                            }
-                            String resultado = pares + impares;
-                            System.out.println("Las posiciones pares son: " + pares);
-                            System.out.println("Las posiciones impares son: " + impares);
-                            System.out.println("Resultado: " + resultado);
-                        }
-                        case 2: {
-                            System.out.println("Ingrese el texto encriptado: ");
-                            String textoEncriptado = entrada.next();
-                            String pares = " ";
-                            String impares = " ";
+                                String resultado = pares + impares;
+                                System.out.println("Las posiciones pares son: " + pares);
+                                System.out.println("Las posiciones impares son: " + impares);
+                                System.out.println("Resultado: " + resultado);
+                                break;
+                            case 2:
+                                System.out.println("Ingrese el texto encriptado: ");
+                                String textoEncriptado = entrada.next();
+                                break;
+                            case 3:
+                                System.out.println("\n*** Saliendo de Codigo Enigma ***");
+                                break;
+                            default:
+                                System.out.println("\n*** Esta opcion no existe ***");
+                                break;
                         }
                     }
                     break;
@@ -127,7 +138,7 @@ public class Madrid_Fernando_Estructura {
                     System.out.println("\nQue tenga lindo dia!\n");
                     break;
                 default:
-                    System.out.println("\n*** Esta opcion no existe ***\n");
+                    System.out.println("\n*** Esta opcion no existe ***");
                     break;
             }
         }
