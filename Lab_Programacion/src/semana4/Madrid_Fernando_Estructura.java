@@ -3,6 +3,16 @@ package semana4;
 import java.util.Scanner;
 
 public class Madrid_Fernando_Estructura {
+    
+    /*
+    
+    Integrantes del grupo:
+
+    - Carlos Fernando Madrid Valdiviezo (22511215)
+    - Andrea Sarahi Martinez Lopez (22511285)
+    - Oscar Gabriel Sánchez Martinez (22511311)
+    
+    */
 
     public static void main(String[] args) {
 
