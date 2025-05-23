@@ -1,12 +1,14 @@
 package semana5;
 
 import java.util.Scanner;
+import java.util.Random;
 
 public class Madrid_Fernando_Exam1 {
 
     public static void main(String[] args) {
 
         Scanner entrada = new Scanner(System.in).useDelimiter("\n");
+        Random random = new Random();
 
         boolean salir = false;
         int opcion = 0;
@@ -27,7 +29,9 @@ public class Madrid_Fernando_Exam1 {
             switch (opcion) {
                 case 1:
 
-                    int filas = 0, numero = 1, sumaImpares = 0;
+                    int filas = 0,
+                     numero = 1,
+                     sumaImpares = 0;
 
                     System.out.println("\n===================================");
                     System.out.println("            Piramide");
@@ -48,7 +52,9 @@ public class Madrid_Fernando_Exam1 {
                     break;
                 case 2:
 
-                    String frase = "", cifrada = "", descifrada = "";
+                    String frase = "",
+                     cifrada = "",
+                     descifrada = "";
                     char letra = ' ';
 
                     System.out.println("\n================================");
@@ -87,7 +93,91 @@ public class Madrid_Fernando_Exam1 {
                     System.out.println("Frase Descifrada: " + descifrada);
                     break;
                 case 3:
-                    break;
+
+                    int objetoConsola = 0;
+                    boolean salirJuego = false;
+                    String objeto = "",
+                     respuesta = "";
+
+                    System.out.println("\n===================================");
+                    System.out.println("  Juego de Pieda, Papel y Tijeras");
+                    System.out.println("===================================\n");
+                    System.out.println("Bienvenido al juego!");
+
+                    while (!salirJuego) {
+                        while (true) {
+                            System.out.println("\n| Piedra");
+                            System.out.println("| Papel");
+                            System.out.println("| Tijeras\n");
+                            System.out.print("Elige un objeto: ");
+                            objeto = entrada.next();
+
+                            objetoConsola = random.nextInt(1, 4);
+
+                            if (objeto.equalsIgnoreCase("Piedra") || objeto.equalsIgnoreCase("Papel") || objeto.equalsIgnoreCase("Tijeras")) {
+                                switch (objetoConsola) {
+                                    case 1:
+                                        if (objeto.equalsIgnoreCase("Piedra")) {
+                                            System.out.println("\n*** Tenemos un Empate ***\n");
+                                            System.out.println("| Objeto del Usuario: Piedra");
+                                        } else if (objeto.equalsIgnoreCase("Papel")) {
+                                            System.out.println("\n*** Ganador: Usuario ***\n");
+                                            System.out.println("| Objeto del Usuario: Papel");
+                                        } else if (objeto.equalsIgnoreCase("Tijeras")) {
+                                            System.out.println("\n*** Ganador: Computadora ***\n");
+                                            System.out.println("| Objeto del Usuario: Tijeras");
+                                        }
+                                        System.out.println("| Objeto de la Computadora: Piedra");
+                                        break;
+                                    case 2:
+                                        if (objeto.equalsIgnoreCase("Piedra")) {
+                                            System.out.println("\n*** Ganador: Computadora ***\n");
+                                            System.out.println("| Objeto del Usuario: Piedra");
+                                        } else if (objeto.equalsIgnoreCase("Papel")) {
+                                            System.out.println("\n*** Tenemos un Empate ***\n");
+                                            System.out.println("| Objeto del Usuario: Papel");
+                                        } else if (objeto.equalsIgnoreCase("Tijeras")) {
+                                            System.out.println("\n*** Ganador: Usuario ***\n");
+                                            System.out.println("| Objeto del Usuario: Tijeras");
+                                        }
+                                        System.out.println("| Objeto de la Computadora: Papel");
+                                        break;
+                                    case 3:
+                                        if (objeto.equalsIgnoreCase("Piedra")) {
+                                            System.out.println("\n*** Ganador: Usuario ***\n");
+                                            System.out.println("| Objeto del Usuario: Piedra");
+                                        } else if (objeto.equalsIgnoreCase("Papel")) {
+                                            System.out.println("\n*** Ganador: Computadora ***\n");
+                                            System.out.println("| Objeto del Usuario: Papel");
+                                        } else if (objeto.equalsIgnoreCase("Tijeras")) {
+                                            System.out.println("\n*** Tenemos un Empate ***\n");
+                                            System.out.println("| Objeto del Usuario: Tijeras");
+                                        }
+                                        System.out.println("| Objeto de la Computadora: Tijeras");
+                                        break;
+                                }
+
+                                while (true) {
+                                    System.out.print("\nDesea jugar nuevamente? (Si/No): ");
+                                    respuesta = entrada.next();
+
+                                    if (respuesta.equalsIgnoreCase("Si")) {
+                                        salirJuego = false;
+                                        break;
+                                    } else if (respuesta.equalsIgnoreCase("No")) {
+                                        salirJuego = true;
+                                        break;
+                                    } else {
+                                        System.out.println("\n*** ERROR: Ingrese Si o No ***");
+                                    }
+                                }
+                                break;
+                            } else {
+                                System.out.println("\n*** Objeto Invalido ***");
+                            }
+                        }
+                    }
+
                 case 4:
                     break;
                 case 5:
