@@ -47,6 +47,44 @@ public class Madrid_Fernando_Exam1 {
                     }
                     break;
                 case 2:
+
+                    String frase = "", cifrada = "", descifrada = "";
+                    char letra = ' ';
+
+                    System.out.println("\n================================");
+                    System.out.println("             Clave");
+                    System.out.println("================================\n");
+                    System.out.print("Ingrese una frase o palabra: ");
+                    frase = entrada.next();
+
+                    for (int i = 0; i < frase.length(); i++) {
+                        letra = frase.charAt(i);
+
+                        if (letra >= 'a' && letra <= 'z') {
+                            cifrada += (char) ('z' - (letra - 'a'));
+                        } else if (letra >= 'A' && letra <= 'Z') {
+                            cifrada += (char) ('Z' - (letra - 'A'));
+                        } else {
+                            cifrada += letra;
+                        }
+
+                    }
+
+                    for (int j = 0; j < cifrada.length(); j++) {
+                        letra = cifrada.charAt(j);
+
+                        if (letra >= 'a' && letra <= 'z') {
+                            descifrada += (char) ('z' - (letra - 'a'));
+                        } else if (letra >= 'A' && letra <= 'Z') {
+                            descifrada += (char) ('Z' - (letra - 'A'));
+                        } else {
+                            descifrada += letra;
+                        }
+
+                    }
+
+                    System.out.println("\nFrase Cifrada: " + cifrada);
+                    System.out.println("Frase Descifrada: " + descifrada);
                     break;
                 case 3:
                     break;
