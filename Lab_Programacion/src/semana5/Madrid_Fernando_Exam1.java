@@ -29,9 +29,7 @@ public class Madrid_Fernando_Exam1 {
             switch (opcion) {
                 case 1:
 
-                    int filas = 0,
-                     numero = 1,
-                     sumaImpares = 0;
+                    int filas = 0, numero = 1, sumaImpares = 0;
 
                     System.out.println("\n===================================");
                     System.out.println("            Piramide");
@@ -52,9 +50,7 @@ public class Madrid_Fernando_Exam1 {
                     break;
                 case 2:
 
-                    String frase = "",
-                     cifrada = "",
-                     descifrada = "";
+                    String frase = "", cifrada = "", descifrada = "";
                     char letra = ' ';
 
                     System.out.println("\n================================");
@@ -96,8 +92,7 @@ public class Madrid_Fernando_Exam1 {
 
                     int objetoConsola = 0;
                     boolean salirJuego = false;
-                    String objeto = "",
-                     respuesta = "";
+                    String objeto = "", respuesta = "";
 
                     System.out.println("\n===================================");
                     System.out.println("  Juego de Pieda, Papel y Tijeras");
@@ -181,14 +176,11 @@ public class Madrid_Fernando_Exam1 {
                 case 4:
 
                     boolean adivino = false;
-                    int intentos = 1,
-                     numeroIngresado = 0,
-                     numeroRandom = random.nextInt(1, 101);
+                    int intentos = 1, numeroIngresado = 0, numeroRandom = random.nextInt(1, 101);
 
                     System.out.println("\n================================");
                     System.out.println("             Adivinar");
-                    System.out.println("================================\n");
-                    System.out.println("Numero Aleatorio: " + numeroRandom);
+                    System.out.println("================================");
 
                     while (intentos <= 10) {
 
