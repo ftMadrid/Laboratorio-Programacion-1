@@ -177,14 +177,50 @@ public class Madrid_Fernando_Exam1 {
                             }
                         }
                     }
-
+                    break;
                 case 4:
+
+                    boolean adivino = false;
+                    int intentos = 1,
+                     numeroIngresado = 0,
+                     numeroRandom = random.nextInt(1, 101);
+
+                    System.out.println("\n================================");
+                    System.out.println("             Adivinar");
+                    System.out.println("================================\n");
+                    System.out.println("Numero Aleatorio: " + numeroRandom);
+
+                    while (intentos <= 10) {
+
+                        System.out.print("\nIngrese un numero: ");
+                        numeroIngresado = entrada.nextInt();
+
+                        if (numeroRandom > numeroIngresado) {
+                            System.out.println("\nEl numero a adivinar es mayor que " + numeroIngresado);
+                            System.out.println("Intentos Restantes: " + (10 - intentos));
+                        } else if (numeroRandom < numeroIngresado) {
+                            System.out.println("\nEl numero a adivinar es menor que " + numeroIngresado);
+                            System.out.println("Intentos Restantes: " + (10 - intentos));
+                        } else {
+                            System.out.println("\n*** Usted adivino el numero ***\n");
+                            System.out.println("| Numero Generado: " + numeroRandom);
+                            System.out.println("| Adivinado en " + intentos + " intentos.");
+                            adivino = true;
+                            break;
+                        }
+                        intentos++;
+                    }
+                    if (!adivino) {
+                        System.out.println("\n*** Se acabaron los intentos ***\n");
+                        System.out.println("| El numero era " + numeroRandom + ".");
+                    }
                     break;
                 case 5:
                     System.out.println("\nQue tenga lindo dia!\n");
                     salir = true;
                     break;
                 default:
+                    System.out.println("\n*** Opcion Invalida ***");
                     break;
             }
 
