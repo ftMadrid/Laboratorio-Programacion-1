@@ -99,6 +99,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Cambiar Palabras"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonCambiarPalabrasActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

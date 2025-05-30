@@ -50,6 +50,11 @@ public class Menu extends javax.swing.JFrame {
 
         botonCambiarPalabras.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         botonCambiarPalabras.setText("Cambiar Palabras");
+        botonCambiarPalabras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCambiarPalabrasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -89,6 +94,14 @@ public class Menu extends javax.swing.JFrame {
         juego.setVisible(true);
         dispose();
     }//GEN-LAST:event_botonJugarMouseClicked
+
+    private void botonCambiarPalabrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCambiarPalabrasActionPerformed
+        // TODO add your handling code here:
+        CambiarPalabra cambiar = new CambiarPalabra();
+        cambiar.setLocationRelativeTo(null);
+        cambiar.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_botonCambiarPalabrasActionPerformed
 
     /**
      * @param args the command line arguments
