@@ -101,9 +101,13 @@ public class CambiarPalabra extends javax.swing.JFrame {
     private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarActionPerformed
         // TODO add your handling code here:
 
+        String nueva = "";
+        for(int i = 0; i<Juego.palabras.length;i++){
+            nueva += Juego.palabras[i]+" ";
+        }
+        
         String[] palabrasAntiguas = Juego.palabras;
         String antigua = "";
-        String nueva = "";
         boolean chequeo = false;
         Juego.palabras[posicion] = palabra.getText();
         posicion++;
@@ -118,9 +122,6 @@ public class CambiarPalabra extends javax.swing.JFrame {
         
         for(int i = 0; i<palabrasAntiguas.length;i++){
             antigua += palabrasAntiguas[i]+" ";
-        }
-        for(int i = 0; i<Juego.palabras.length;i++){
-            nueva += Juego.palabras[i]+" ";
         }
         
         if(chequeo){
