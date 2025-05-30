@@ -6,7 +6,6 @@ public class Juego extends javax.swing.JFrame {
 
     Random random = new Random();
 
-    static String escondida = "";
     static String palabras[] = {"Honduras", "Rojo", "Profeta", "Pizza", "Hamburguesa", "Panama", "Telefono", "Lentes", "Manzana", "Pera"};
     int posicion = random.nextInt(0, 10);
     String palabraEscondida;
@@ -20,7 +19,7 @@ public class Juego extends javax.swing.JFrame {
         progreso = new char[palabraEscondida.length()];
 
         for (int i = 0; i < progreso.length; i++) {
-            progreso[i] = '_ ';
+            progreso[i] = '_';
         }
 
         String texto = "";
@@ -30,6 +29,7 @@ public class Juego extends javax.swing.JFrame {
         palabraGenerada.setText(texto);
         labelIntentos.setText("Intentos Restantes: "+intentos);
         vfIntento.setText("");
+        labelResultado.setText("");
 
     }
 
@@ -50,6 +50,7 @@ public class Juego extends javax.swing.JFrame {
         labelPalabra = new javax.swing.JLabel();
         labelIntentos = new javax.swing.JLabel();
         vfIntento = new javax.swing.JLabel();
+        labelResultado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,39 +78,44 @@ public class Juego extends javax.swing.JFrame {
 
         labelIntentos.setText("Intentos Restantes: ");
 
-        vfIntento.setText("jLabel2");
+        vfIntento.setText("verificacion intento");
+
+        labelResultado.setFont(new java.awt.Font("Kefa", 1, 24)); // NOI18N
+        labelResultado.setText("resultado");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(111, 111, 111)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(111, 111, 111)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(letraAhorcado, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(botonAceptar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(labelPalabra)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(palabraGenerada))
-                            .addComponent(vfIntento)
-                            .addComponent(labelIntentos, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(letraAhorcado, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botonAceptar))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(145, 145, 145)
-                        .addComponent(tituloAhorcado)))
-                .addContainerGap(78, Short.MAX_VALUE))
+                        .addComponent(labelPalabra)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(palabraGenerada))
+                    .addComponent(vfIntento)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelIntentos, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                        .addComponent(labelResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(37, 37, 37))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(165, 165, 165)
+                .addComponent(tituloAhorcado)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(27, 27, 27)
                 .addComponent(tituloAhorcado)
-                .addGap(40, 40, 40)
+                .addGap(44, 44, 44)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -117,13 +123,15 @@ public class Juego extends javax.swing.JFrame {
                     .addComponent(botonAceptar))
                 .addGap(18, 18, 18)
                 .addComponent(vfIntento)
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelIntentos)
+                    .addComponent(labelResultado))
                 .addGap(16, 16, 16)
-                .addComponent(labelIntentos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelPalabra)
                     .addComponent(palabraGenerada))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         pack();
@@ -136,10 +144,10 @@ public class Juego extends javax.swing.JFrame {
     private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarActionPerformed
         // TODO add your handling code here:
         
+        Menu menu = new Menu();
         String entrada = letraAhorcado.getText().toUpperCase();
         boolean acierto = false;
         letraAhorcado.setText("");
-        labelIntentos.setText("Intentos Restantes: "+intentos);
 
         if (entrada.length() == 1) {
             char letra = entrada.charAt(0);
@@ -151,11 +159,11 @@ public class Juego extends javax.swing.JFrame {
                 }
             }
             
-            if(acierto){
-                vfIntento.setText("Le pegaste al caracter!");
-            }else{
+            if(!acierto){
                 intentos--;
                 vfIntento.setText("No le pegaste al caracter!");
+            }else{
+                vfIntento.setText("Le pegaste al caracter!");
             }
 
             String texto = "";
@@ -166,20 +174,34 @@ public class Juego extends javax.swing.JFrame {
             }
 
             palabraGenerada.setText(texto);
-
-            if (verificacion.equalsIgnoreCase(palabras[posicion].toUpperCase())) {
+            
+            if(intentos == 0){
                 botonAceptar.setEnabled(false);
                 letraAhorcado.setEnabled(false);
-
+                labelResultado.setText("Perdiste!");
                 javax.swing.Timer timer = new javax.swing.Timer(2000, e -> {
                     dispose();
-                    Menu menu = new Menu();
                     menu.setLocationRelativeTo(this);
                     menu.setVisible(true);
                 });
                 timer.setRepeats(false);
                 timer.start();
             }
+
+            if (verificacion.equalsIgnoreCase(palabras[posicion].toUpperCase())) {
+                botonAceptar.setEnabled(false);
+                letraAhorcado.setEnabled(false);
+                labelResultado.setText("Ganaste!");
+
+                javax.swing.Timer timer = new javax.swing.Timer(2000, e -> {
+                    dispose();
+                    menu.setLocationRelativeTo(this);
+                    menu.setVisible(true);
+                });
+                timer.setRepeats(false);
+                timer.start();
+            }
+            labelIntentos.setText("Intentos Restantes: "+intentos);
         }
     }//GEN-LAST:event_botonAceptarActionPerformed
 
@@ -201,6 +223,7 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private static javax.swing.JLabel labelIntentos;
     private static javax.swing.JLabel labelPalabra;
+    private javax.swing.JLabel labelResultado;
     private javax.swing.JTextField letraAhorcado;
     private static javax.swing.JLabel palabraGenerada;
     private javax.swing.JLabel tituloAhorcado;
